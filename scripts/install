@@ -25,7 +25,7 @@ mkdir -p "$install_dir"
 chown -R $app:www-data "$install_dir"
 
 git clone https://activitypub.software/TransFem-org/Sharkey.git "$install_dir"
-
+git config --global --add safe.directory "$install_dir"
 pushd "$install_dir"
 git checkout stable
 git submodule update --init
