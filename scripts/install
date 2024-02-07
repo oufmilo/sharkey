@@ -24,7 +24,8 @@ ynh_script_progression --message="Setting up source files..." --weight=3
 mkdir -p "$install_dir"
 chown -R $app:www-data "$install_dir"
 
-ynh_exec_warn git clone --recurse-submodules -b stable https://activitypub.software/TransFem-org/Sharkey.git "$install_dir"
+ynh_exec_warn git clone -b stable https://activitypub.software/TransFem-org/Sharkey.git "$install_dir"
+ynh_exec_warn git submodule update --init --recursive
 
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
