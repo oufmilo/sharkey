@@ -58,7 +58,7 @@ pushd "$install_dir"
 	ynh_use_nodejs
 	corepack enable
 	corepack prepare pnpm@8.15.1 --activate
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH pnpm install --frozen-lockfile
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_ENV=production pnpm install --frozen-lockfile
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_ENV=production pnpm build
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH pnpm run init
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_ENV=production pnpm run start
