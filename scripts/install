@@ -54,6 +54,8 @@ ynh_add_config --template="../conf/default.yml" --destination="$install_dir/.con
 ynh_script_progression --message="Building app..." --weight=15
 
 pushd "$install_dir"
+	git checkout stable
+	git submodule update --init
 	ynh_use_nodejs
 	corepack enable
 	corepack prepare pnpm@latest --activate
